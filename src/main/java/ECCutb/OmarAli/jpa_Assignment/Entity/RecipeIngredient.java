@@ -26,9 +26,6 @@ public class RecipeIngredient {
   )
   private String recipeIngredientId;
   private double amount;
-
-
-
   private Measurement unit;
 
   @ManyToOne(
@@ -38,13 +35,13 @@ public class RecipeIngredient {
   @JoinColumn(name = "recipe_id")
   private Recipe recipe;
 
-  public RecipeIngredient(Ingredient ingredient, String recipeIngredientId, double amount,
+  public RecipeIngredient(String recipeIngredientId, double amount,
       Measurement unit) {
-    this.ingredient = ingredient;
     this.recipeIngredientId = recipeIngredientId;
     this.amount = amount;
     this.unit = unit;
   }
+  public RecipeIngredient(){}
 
   public Ingredient getIngredient() {
     return ingredient;

@@ -36,9 +36,10 @@ public class CommandLine implements CommandLineRunner {
     ingredientDao.save(ingredient);
     Recipe recipe = new Recipe( "Fruit");
     recipeDao.save(recipe);
-    RecipeIngredient recipeIngredient = new RecipeIngredient(, "1", 25, Measurement.KG);
+    RecipeIngredient recipeIngredient = new RecipeIngredient("1", 25, Measurement.KG);
     recipeIngredientDao.save(recipeIngredient);
     RecipeInstruction recipeInstruction = new RecipeInstruction("1", "Its a yellow fruit and very delicious");
+    recipeInstructionDao.save(recipeInstruction);
 
     //Optional<Ingredient> result = ingredientDao.findByIngredientNameIgnoreCase("BaNaNeR");
     //System.out.println(result.orElseThrow(IllegalArgumentException::new));
