@@ -28,15 +28,19 @@ public class RecipeCategory {
       inverseJoinColumns = @JoinColumn(name = "recipe_id"))
   private List<Recipe> recipeListByCategory = new ArrayList<>();
 
-  public RecipeCategory(int recipeCategoryId, String recipeCategoryName) {
+  public RecipeCategory(int recipeCategoryId, String recipeCategoryName,
+      List<Recipe> recipeListByCategory) {
     this.recipeCategoryId = recipeCategoryId;
     this.recipeCategoryName = recipeCategoryName;
+    this.recipeListByCategory = recipeListByCategory;
   }
 
-  public RecipeCategory(String recipeCategoryName) {
-    this(0, recipeCategoryName);
+  public RecipeCategory(String recipeCategoryName,
+      List<Recipe> recipeListByCategory) {
+    this(0,recipeCategoryName,recipeListByCategory);
   }
-
+  public RecipeCategory(){}
+  
   public int getRecipeCategoryId() {
     return recipeCategoryId;
   }
@@ -74,5 +78,11 @@ public class RecipeCategory {
     sb.append(", recipeCategoryName='").append(recipeCategoryName).append('\'');
     sb.append('}');
     return sb.toString();
+  }
+
+  public List<Recipe> getRecipe() {
+    if (recipeListByCategory == null)
+      return new ArrayList<>();
+    return recipeListByCategory;
   }
 }

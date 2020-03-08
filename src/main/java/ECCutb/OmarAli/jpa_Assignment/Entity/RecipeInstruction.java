@@ -21,6 +21,11 @@ public class RecipeInstruction {
     this.recipeInstructionId = recipeInstructionId;
     this.instruction = instruction;
   }
+
+  public RecipeInstruction(String instruction) {
+    this(null,instruction);
+  }
+
   public RecipeInstruction(){}
 
   public String getRecipeInstructionId() {

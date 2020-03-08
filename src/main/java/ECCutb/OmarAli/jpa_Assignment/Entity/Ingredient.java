@@ -19,10 +19,10 @@ public class Ingredient {
     this.ingredientId = ingredientId;
     this.name = name;
   }
-
   public Ingredient(String name) {
     this(0, name);
   }
+  public Ingredient(){}
 
   public int getIngredientId() {
     return ingredientId;

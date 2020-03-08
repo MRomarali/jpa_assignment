@@ -35,12 +35,20 @@ public class RecipeIngredient {
   @JoinColumn(name = "recipe_id")
   private Recipe recipe;
 
-  public RecipeIngredient(String recipeIngredientId, double amount,
-      Measurement unit) {
+  public RecipeIngredient(Ingredient ingredient, String recipeIngredientId, double amount,
+      Measurement unit, Recipe recipe) {
+    this.ingredient = ingredient;
     this.recipeIngredientId = recipeIngredientId;
     this.amount = amount;
     this.unit = unit;
+    this.recipe = recipe;
   }
+
+  public RecipeIngredient(Ingredient ingredient, double amount,
+      Measurement unit, Recipe recipe) {
+    this(ingredient,null,amount,unit,recipe);
+  }
+
   public RecipeIngredient(){}
 
   public Ingredient getIngredient() {
@@ -104,5 +112,9 @@ public class RecipeIngredient {
     sb.append(", unit=").append(unit);
     sb.append('}');
     return sb.toString();
+  }
+
+  public void setRecipe(Recipe recipe) {
+    this.recipe = recipe;
   }
 }
